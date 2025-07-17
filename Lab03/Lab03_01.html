@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 673380028-2 -->
+
+    
+</body>
+<script>
+
+    let Students = [
+        {
+            "name": "Marckris",
+            "age": 22,
+            "grade": "A",
+        },
+        {
+            "name": "Khunpol",
+            "age": 22,
+            "grade": "B",
+        },
+        {
+            "name": "Thai",
+            "age": 20,
+            "grade": "D",
+        },
+        {
+            "name": "AA",
+            "age": 19,
+            "grade": "A",
+        },
+        {
+            "name": "Jungt",
+            "age": 18,
+            "grade": "B",
+        },
+        {
+            "name": "Mark",
+            "age": 56,
+            "grade": "F",
+        },
+    ]
+
+    for(const s in Students){
+        if(Students[s].grade == "A" ){
+            console.log(`${Students[s].name} has an excellents grade.`)
+            if(Students[s].age >= 20){
+                console.log(`${Students[s].name} is above 20 years old.`)
+            } else {
+                console.log(`${Students[s].name} is below 20 years old.`)
+            }
+        } else if(Students[s].grade == "B"){
+            console.log(`${Students[s].name} has a good grade.`)
+            if(Students[s].age >= 20){
+                console.log(`${Students[s].name} is above 20 years old.`)
+            } else {
+                console.log(`${Students[s].name} is below 20 years old.`)
+            }
+        } else {
+            console.log(`${Students[s].name} needs improvement.`)
+            if(Students[s].age >= 20){
+                console.log(`${Students[s].name} is above 20 years old.`)
+            } else {
+                console.log(`${Students[s].name} is below 20 years old.`)
+            }
+        }
+        
+    }
+</script>
+</html>
