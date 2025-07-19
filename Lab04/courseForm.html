@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+    <!-- 673380028-2 -->
+
+<body>
+  <h2>ระบบเพิ่มรายวิชา</h2>
+  <form onsubmit="addCourse(event)">
+    ชื่อวิชา: <input type="text" name="" id="course">
+    <input type="submit" value="เพิ่มวิชา">
+
+    <br/>
+    รายวิชาที่มี: <select name="" id="subject">
+      <option selected>-- เลือกรายวิชา --</option>
+    </select>
+  </form>
+</body>
+<script>
+  function addCourse(e) {
+    e.preventDefault();
+    const input = document.getElementById("course");
+    const select = document.getElementById("subject");
+
+    if(input.value === ""){
+      alert("กรุณากรอกชื่อวิชา");
+      return false;
+    } 
+    
+    const op = document.createElement("option");
+    op.text = input.value;
+    op.value = input.value;
+
+    select.appendChild(op);
+    input.value = "";
+    return true;
+  }
+</script>
+
+</html>

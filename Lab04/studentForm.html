@@ -1,0 +1,87 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <!-- 673380028-2 -->
+
+<body>
+    <h2>ฟอร์มลงทะเบียนนักศึกษา</h2>
+    <form onsubmit="validateForm(event)">
+        ชื่อ - สกุล :<br />
+        <input type="text" id="name" onblur="checkFullName()"><br />
+        รหัสนักศึกษา(มีขีด) :<br />
+        <input type="text" id="stdid" onblur="checkStudentId()"><br />
+        อีเมล์ :<br />
+        <input type="email" id="emails" onblur="checkEmail()"><br />
+        เบอร์โทรศัพท์เคลื่อนที่ :<br />
+        <input type="text" id="phone" onblur="checkPhone()"><br />
+    
+        คณะ :<br />
+        <select name="fc" id="fc">
+            <option selected>-- กรุณาเลือก --</option>
+            <option value="วิศวกรรม">วิศวกรรม</option>
+            <option value="วิทยาศาสตร์">วิทยาศาสตร์</option>
+            <option value="บริหารธุรกิจ">บริหารธุรกิจ</option>
+            <option value="วิทยาลัยการคอมพิวเตอร์">วิทยาลัยการคอมพิวเตอร์</option>
+        </select>
+        <br />
+    
+        <input type="submit" value="ลงทะเบียน" style="margin-top: 10px;">
+    </form>
+</body>
+<script>
+    function checkFullName() {
+        let fn = document.getElementById("name").value;
+        if (fn === "") {
+            alert("กรุณากรอกชื่อ - นามสกุลของนักศึกษา");
+            return false;
+        }
+        return fn;
+    }
+
+    function checkStudentId() {
+        let id = document.getElementById("stdid").value;
+        if (id.length <= 10) {
+            alert("รหัศนักศึกษาต้องมีทั้งหมด 11 หลัก");
+            return false;
+        }
+        return id;
+    }
+
+    function checkPhone() {
+        let phone = document.getElementById("phone").value;
+        if (phone.length <= 9) {
+            alert("เบอร์โทรศัพท์ต้องมีทั้งหมด 10 หลัก");
+            return false;
+        }
+        return phone;
+    }
+
+    function checkEmail() {
+        let em = document.getElementById("emails").value;
+        if (em.trim() === "") {
+            alert("กรุณากรอกอีเมล");
+            return false;
+        }
+        return em;
+    }
+
+    function validateForm(e) {
+        e.preventDefault();
+        if (!checkFullName() || !checkStudentId() || !checkEmail() || !checkPhone() || document.getElementById("fc").selectedIndex === 0) {
+            alert("กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง");
+            return false;
+        }
+        alert("ลงทะเบียนสำเร็จ!");
+        console.log("ชื่อนามสกุล:", document.getElementById("name").value);
+        console.log("รหัสนักศึกษา:", document.getElementById("stdid").value);
+        console.log("อีเมล:", document.getElementById("emails").value);
+        console.log("เบอร์โทร:", document.getElementById("phone").value);
+        console.log("คณะ:", document.getElementById("fc").value);
+    }
+</script>
+
+</html>
