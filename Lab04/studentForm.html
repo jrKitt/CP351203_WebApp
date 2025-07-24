@@ -9,7 +9,7 @@
 
 <body>
     <h2>ฟอร์มลงทะเบียนนักศึกษา</h2>
-    <form onsubmit="validateForm(event)">
+    <form >
         ชื่อ - สกุล :<br />
         <input type="text" id="name" onblur="checkFullName()"><br />
         รหัสนักศึกษา(มีขีด) :<br />
@@ -29,7 +29,7 @@
         </select>
         <br />
     
-        <input type="submit" value="ลงทะเบียน" style="margin-top: 10px;">
+        <input type="submit" value="ลงทะเบียน" style="margin-top: 10px;" onclick="validateForm()">
     </form>
 </body>
 <script>
@@ -69,8 +69,8 @@
         return em;
     }
 
-    function validateForm(e) {
-        e.preventDefault();
+    function validateForm() {
+        
         if (!checkFullName() || !checkStudentId() || !checkEmail() || !checkPhone() || document.getElementById("fc").selectedIndex === 0) {
             alert("กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง");
             return false;
